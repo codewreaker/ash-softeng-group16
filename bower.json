@@ -1,0 +1,36 @@
+{
+  "name": "ash-softeng-group16",
+  "version": "0.0.1",
+  "homepage": "https://github.com/codewreaker/ash-softeng-group16",
+  "description": "Software Engineering Class Project",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "software",
+    "engineering",
+    "agile",
+    "development",
+    "bower",
+    "git"
+  ],
+  "authors": [
+    "Israel Agyeman-Prempeh",
+    "Makafui Amezah",
+    "Frances Wireko",
+    "Israel Oladejo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4"
+  }
+}
