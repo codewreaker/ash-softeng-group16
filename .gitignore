@@ -12,6 +12,7 @@ node_modules
 *.exe
 *.o
 *.so
+*.sass-cache
 
 # Packages #
 ############
