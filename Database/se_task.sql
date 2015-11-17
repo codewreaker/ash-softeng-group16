@@ -7,7 +7,7 @@
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.5.30
 
--- Frances Wireko
+-- Frances A Wireko
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
