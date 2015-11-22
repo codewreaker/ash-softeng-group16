@@ -38,6 +38,5 @@ class se_task extends adb{
                         report='$report'";
 			return $this->query($str_query);
 	}
-
-   
+}
 ?>
