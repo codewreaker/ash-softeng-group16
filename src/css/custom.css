@@ -1,0 +1,113 @@
+
+.toolbar {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    left: 0px;
+    background-color:#e7e8e8;
+}
+.toolbar ul{
+    list-style: none;
+    
+}
+
+
+.toolbar ul li{
+    display: inline-block;
+    float: right;
+    padding: 5px;
+    width: 50px;
+    height: 40px;
+}
+
+.toolbar ul li i{
+    font-size: 1.4em;
+}
+
+.toolbar ul .brand_name {
+    cursor: pointer;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 5px 0px 10px 0px;
+    width: inherit;
+    
+}
+
+
+.loginForm {
+    margin-top:1%; 
+    padding: 50px;
+}
+
+.loginForm .head{
+    height: 130px;
+    padding: 10px;
+    text-align: center;
+    background-color: #2a2b2a;
+}
+
+.loginForm form{
+    padding: 20px;
+    background-color: #e7e8e8 ;
+    height: 250px;
+}
+ 
+
+.loginForm img{
+    display: block;
+    margin: 0px auto;
+    width: 400px;
+    padding: 20px;
+}
+
+.loginForm a.btn{
+    border-radius: 0px;
+    display: block;
+    margin: 10px 0px 0px 0px;
+}
+
+/*********** Sign Up Form ***********/
+
+
+
+#signup_page form{
+    height: 350px;
+}
+
+.splitter {
+     border-bottom: 0.1em solid #7b7b7b;
+}
+
+
+
+.toast {
+    width:70%;
+    height:20px;
+    height:auto;
+    position:absolute;
+    z-index:5000;
+    left:26%;
+    margin-left:-100px;
+    bottom:500px;
+    color: #F0F0F0;
+    font-family: Calibri;
+    font-size: 20px;
+    padding:10px;
+    text-align:center;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+}
+
+
+.toast .green{
+    background-color: #67ff53 !important;
+}
+
+.toast .red{
+    background-color: #fc3a3a !important;
+}

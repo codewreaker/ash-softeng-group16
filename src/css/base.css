@@ -1,13 +1,59 @@
 body {
-  font: 100% Helvetica, sans-serif;
-  color: #333; }
+    font: 100% Helvetica, sans-serif;
+    color: #333;
+}
 
-span {
-  display: block;
-  width: 400px;
-  display: block; }
-  span i {
-    font-size: 11em;
-    color: #e74c3c; }
 
+.brand_name,ul li>span>i{
+    color: #da544f;
+}
+
+.dark{
+    background-color:#2a2b2a !important;
+}
+
+.white1{
+    background-color:#f9fafb !important;
+}
+
+.white2{
+    background-color:#e7e8e8 !important;
+}
+
+.green{
+    background-color:#20a286;
+}
+.text-color{
+    color:#707171 !important;
+}
+
+.red{
+    background-color:#da544f !important;
+}
+
+/*****************************************/
+.dark-text{
+    color:#2a2b2a !important;
+}
+
+.white1-text{
+    color:#f9fafb !important;
+}
+
+.white2-text{
+    color:#e7e8e8 !important;
+}
+
+.green-text{
+    color:#20a286;
+}
+
+
+.red-text{
+    color:#da544f !important;
+}
+
+button{
+    border-radius: 0px !important;
+}
 /*# sourceMappingURL=base.css.map */
