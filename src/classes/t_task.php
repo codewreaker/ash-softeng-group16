@@ -24,7 +24,7 @@ class se_task extends adb{
     * @param datetime $end_time the time the task is completed
     * @param int $user_id the id of the user being assigned to the task
     * @param int $status the progress of the task
-    * @param string $report documentation for compleeted task
+    * @param string $report documentation for completed task
     * @return $this->query($str_query); Returns a query with the values
     */
 	function add_task($task_id, $task_name, $start_time, $end_time, $user_id, $status, $report){
@@ -44,47 +44,27 @@ class se_task extends adb{
     * Function to Edit a task to
     *
     * @param int $task_id The task id of a the value to be edited
-    * @param string $task_name The task name of the task, this is the updated name to be changed
-    * @param string $description This is a short description of the task to be edited
-    * @param int $task_personnel This parameter is an id referencing the personnel who issued the add. This can also be updated
-    * @param Date $due_date This is a parameter that is entered by default, it is a date timestamp of the entry
+    * @param string $task_name The task name of the task to be changed if necessary
+    * @param datetime $start_time This is the time the task should start and should be changed if the task started late
+    * @param datetime $end_time This is the time the task ended
+    * @param int $user_id This is the person being assigned the task
+    * @param int $status This is the current progress of the task
+    * @param string $report Documentation for the task
     * @return $this->query($str_query); Returns a query with the values
     */
-	function edit_task($task_id,$task_name, $description,$task_personnel, $due_date){
-			$str_query="UPDATE t_task SET
+	function edit_task($task_id, $task_name, $start_time, $end_time, $user_id, $status, $report){
+			$str_query="UPDATE se_task SET
                         task_id=$task_id,
 						task_name='$task_name',
-						description='$description',
-                        task_personnel=$task_personnel,
-						due_date='$due_date',
-                        report_id=$task_id WHERE `task_id`=$task_id";
+						start_time='$start_time',
+                        end_time='$end_time',
+                        user_id='$user_id',
+						status='$status',
+                        report='$report', WHERE `task_id`=$task_id";
 			return $this->query($str_query);
 	}
 
-    /**
-    * A function to delete a record from the database
-    *
-    * @param int $task_id the id of the record to be deleted
-    * @return $this->query($str_query); Returns a query with the values
-    */
-	function delete_task($task_id){
-			$str_query="delete from t_task WHERE task_id= $task_id";
-			return $this->query($str_query);
-	}
-
-    /**
-    * A function to delete a record from the database
-    *
-    * @param int $task_id the id of the record to be deleted
-    * @return $this->query($str_query); Returns a query with the values
-    */
-    function get_task(){
-            $str_query = "SELECT `task_id`, `task_name`, `description`,`task_personnel`, `due_date`, `report_id` FROM `t_task` ";
-            if(!$this->query($str_query)){
-                return false;
-            }else{
-                return true;
-            }
-        }
+    
+        
 }
 ?>
