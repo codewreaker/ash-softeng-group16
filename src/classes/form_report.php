@@ -1,3 +1,10 @@
+<? php
+/**
+* @author Frances A. Wireko
+* @copyright 2015-11-18
+*/
+?>
+
 <html>
 <head>
 	<style>
@@ -16,26 +23,29 @@
 
 <tr>
 <form method="GET" action="form_report.php">
-		<div>Report Id:   <input type="text" size="14" name="ri"></div>
-		<div>Limitations: </div>
-		<div>  <textarea name="lm" size="30" ></textarea></div>
-		<div>Errors: </div>
-		<div>  <textarea name="er" size="30" ></textarea></div>
-		<div>Progress Status:   <input type="text" size="14" name="ps"></div>
-					 <input type="submit" value="add">
+		<div>Task Id:<input type="text" size="6" name="ti"></div>
+		<div>Task Name:<input type="text" size="14" name="tn"></div>
+		<div>Start Time:<input type="text" size="14" name="st" ></div>
+		<div>End Time:<input type="text" size="14" name="et"> </div>
+        <div>User Id:<input type="text" size="6" name="ui"> </div>
+		<div>Status:<input type="text" size="6" name="sr"></div>
+        <div>  <textarea> </textarea> </div>
+        
+		<div><input type="submit" value="add"></div>			 
 </tr>
 </form>
 
 <?php
-if(isset($_REQUEST['ri'])){
-	include("t_report.php");
-	$obj= new t_report();
-	$report_id=$_REQUEST['ri'];
-	$limitations=$_REQUEST['lm'];
-	$errors=$_REQUEST['er'];
-	$progress_status=$_REQUEST['ps'];
+if(isset($_REQUEST['ti'])){
+	include("task.php");
+	$obj= new task();
+	$task_id=$_REQUEST['ri'];
+	$task_name=$_REQUEST['lm'];
+	$start_time=$_REQUEST['st'];
+    $end_time=$_REQUEST['et']
+	$status=$_REQUEST['sr'];
 
-	if(!$obj->add_report($report_id,$limitations,$errors,$progress_status)){
+	if(!$obj->add_report($task_id,$task_name,$start_time,$end_time,$status)){
 		echo "Error adding".mysql_error();
 	}
 	else{

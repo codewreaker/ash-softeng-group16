@@ -3,36 +3,42 @@
 
 include_once("adb.php");
 /**
-* @author Israel Agyeman-Prempeh
-* @copyright 2015-09-10
+* @author Frances A. Wireko
+* @copyright 2015-11-18
 */
 
 
 /**
-* This class contain functions that allow the user to do major tasks of a CRUD application like Add, Delete, Edit etc
+* This class contain functions of task requirements like Add, Delete, Edit etc
 *
 *
 **/
-class t_task extends adb{
+class se_task extends adb{
 
     /**
     * Function to Add a task to the database
     *
+    * @param int $task_id the id of the task as an int
     * @param string $task_name the name of the task as a string
-    * @param string $description This a short description of the task
-    * @param int $task_personnel Represents the id referencing the personnel issuing the add
-    * @param Date $due_date This is a parameter that is entered by default, it is a date timestamp of the entry
+    * @param datetime $start_time the time the task is assigned
+    * @param datetime $end_time the time the task is completed
+    * @param int $user_id the id of the user being assigned to the task
+    * @param int $status the progress of the task
+    * @param string $report documentation for compleeted task
     * @return $this->query($str_query); Returns a query with the values
     */
-	function add_task($task_name, $description,$task_personnel, $due_date){
-			$str_query="insert into t_task set
+	function add_task($task_id, $task_name, $start_time, $end_time, $user_id, $status, $report){
+			$str_query="insert into se_task set
+                        task_id='$task_id'
 						task_name='$task_name',
-						description='$description',
-						task_personnel='$task_personnel',
-						due_date='$due_date';
-                        ";
+						start_time='$start_time',
+						end_time='$end_time',
+						user_id='$user_id',
+                        status='$status',
+                        report='$report'";
 			return $this->query($str_query);
 	}
+
 
     /**
     * Function to Edit a task to
