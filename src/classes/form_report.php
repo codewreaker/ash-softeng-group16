@@ -29,7 +29,7 @@
 		<div>End Time:<input type="text" size="14" name="et"> </div>
         <div>User Id:<input type="text" size="6" name="ui"> </div>
 		<div>Status:<input type="text" size="6" name="sr"></div>
-        <div>  <textarea> </textarea> </div>
+        <div> <textarea>  </textarea> </div>
         
 		<div><input type="submit" value="add"></div>			 
 </tr>
@@ -42,8 +42,10 @@ if(isset($_REQUEST['ti'])){
 	$task_id=$_REQUEST['ri'];
 	$task_name=$_REQUEST['lm'];
 	$start_time=$_REQUEST['st'];
-    $end_time=$_REQUEST['et']
+    $end_time=$_REQUEST['et'];
+    $user_id=$_REQUEST['ui']
 	$status=$_REQUEST['sr'];
+    //$report=$_REQUEST['s']
 
 	if(!$obj->add_report($task_id,$task_name,$start_time,$end_time,$status)){
 		echo "Error adding".mysql_error();
