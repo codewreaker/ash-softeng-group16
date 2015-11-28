@@ -30,8 +30,7 @@
         <div>User Id:<input type="text" size="6" name="ui"> </div>
 		<div>Status:<input type="text" size="6" name="sr"></div>
         <div> <textarea>  </textarea> </div>
-
-		<div><input type="submit" value="add"></div>
+        <div><input type="submit" value="add"></div>
 </tr>
 </form>
 

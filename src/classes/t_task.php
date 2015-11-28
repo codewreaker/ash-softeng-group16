@@ -63,8 +63,5 @@ class se_task extends adb{
                         report='$report', WHERE `task_id`=$task_id";
 			return $this->query($str_query);
 	}
-
-
-
 }
 ?>
