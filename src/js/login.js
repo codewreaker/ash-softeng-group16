@@ -39,16 +39,15 @@ sign_up = function () {
         $e = $('#signup_contact').val();
         $f = $('#signup_role option:selected').val();
         $str = 'opt=1&signup_email=' + $a + '&signup_pword=' + $b + '&signup_fullname=' + $c + '&signup_role=' + $d + '&signup_contact=' + $e + '&is_admin=' + $f;
-        
+
         $obj = sendRequest($str);
         if ($obj.result == 1) {
-            prophet_toast(2,$obj.message);
-        setTimeout(function(){
-            window.location.replace("main.html");
-        },3000);          
-         ;
-        }else{
-            prophet_toast(1,$obj.message);
+            prophet_toast(2, $obj.message);
+            setTimeout(function () {
+                window.location.replace("main.html");
+            }, 3000);;
+        } else {
+            prophet_toast(1, $obj.message);
         }
 
     });
@@ -58,9 +57,9 @@ login = function () {
     $('#login').click(function () {
         $a = $('#login_email').val();
         $b = $('#login_pword').val();
-        prophet_toast(2,"Here"); 
+        prophet_toast(2, "Here");
         $obj = sendRequest($str);
-        
+
         if ($obj.result == 1) {} else {}
     });
 }
@@ -88,13 +87,13 @@ switch_pages = function () {
         $('#login_page').hide();
     });
     $('#signup_cancel').click(function () {
-        
+
         $('#login_page').show();
         $('#signup_page').hide();
     });
 }
 
-prophet_toast = function (type,message) {
+prophet_toast = function (type, message) {
     if (type == 1) {
         $('.toast').addClass("red").fadeIn(400).delay(3000).fadeOut(400);
         $('.toast').html(message);
