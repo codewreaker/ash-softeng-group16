@@ -30,7 +30,7 @@ class Auth extends adb{
 
         
 	//Commit values to database here.
-	$str= "INSERT into se_user set email='$email',password='$password',fullname='$fullname',role='$role',contact='$contact',user_salt='$user_salt',is_verified=0,is_active=1,is_admin='$is_admin',verification_code='$code'";
+	$str= "INSERT into se_user set email='$email',password='$password',fullname='$fullname',role='$role',contact='$contact',user_salt='$user_salt',is_verified=1,is_active=1,is_admin='$is_admin',verification_code='$code'";
         
     $created = $this->query($str);
 	if($created != false){
@@ -102,7 +102,7 @@ class Auth extends adb{
 				if($inserted != false) {
 					return 0;
 				} 
-					
+				//Not admin
 				return 3;
 			} else {
 				//Not verified
@@ -199,6 +199,32 @@ class Auth extends adb{
     }
     
     /**
+    * A function that sends an email to a user to verify his account
+    **/
+    public function verify_account($email){
+        $headers = "From: israel.agyeman.prempeh@gmail.com\r\n";
+        $headers .= "Reply-To: israel.agyeman.prempeh@gmail.com\r\n";
+        $headers .= "Return-Path: israel.agyeman.prempeh@gmail.com\r\n";
+        $headers .= "CC: prophet.agyeman-prempeh@ashesi.edu.gh\r\n";
+        $headers .= "BCC: frances.wireko@ashesi.edu.gh,israel.oladejo@ashesi.edu.gh,makafui.amezah@ashesi.edu.gh\r\n";
+
+
+        $to = $email;
+        $subject = "TaskMaster Verification";
+        $txt = "Welcome to TaskMaster you have joined a great health family ";
+        $headers = "From: israel.agyeman.prempeh@gmail.com" . "\r\n" .
+                    "CC: frances.wireko@ashesi.edu.gh,israel.oladejo@ashesi.edu.gh,".
+                    "makafui.amezah@ashesi.edu.gh,";
+
+        if ( mail($to,$subject,$txt,$headers) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
     * This function logs out the sessios
     **/
     public function logout()
@@ -209,22 +235,22 @@ class Auth extends adb{
 }
 /* END OF CLASS */  
 
-$auth = new Auth();
-
-if($_REQUEST['opt']==1){
-    if(!$auth->createUser($_REQUEST['signup_email'],$_REQUEST['signup_pword'],$_REQUEST['signup_fullname'],$_REQUEST['signup_role'],$_REQUEST['signup_contact'],$_REQUEST['is_admin'])){
-        echo mysql_error();
-    }else{
-        echo '{"result":1,"message":"You Have Succesfully Created An Account"}';
-    }
-}else if($_REQUEST['opt']==2){
-    if($auth->login($_REQUEST['login_email'],$_REQUEST['login_pword']) == 4){
-        echo '{"result":0,"message":"error code 4"}';
-    }else{
-        echo '{"result":1,"message":"Succesfully Logged In"}';
-    }
-     
-}
+//$auth = new Auth();
+//
+//if($_REQUEST['opt']==1){
+//    if(!$auth->createUser($_REQUEST['signup_email'],$_REQUEST['signup_pword'],$_REQUEST['signup_fullname'],$_REQUEST['signup_role'],$_REQUEST['signup_contact'],$_REQUEST['is_admin'])){
+//        echo mysql_error();
+//    }else{
+//        echo '{"result":1,"message":"You Have Succesfully Created An Account"}';
+//    }
+//}else if($_REQUEST['opt']==2){
+//    if($auth->login($_REQUEST['login_email'],$_REQUEST['login_pword']) == 4){
+//        echo '{"result":0,"message":"error code 4"}';
+//    }else{
+//        echo '{"result":1,"message":"Succesfully Logged In"}';
+//    }
+//
+//}
   
     
 ?>

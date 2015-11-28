@@ -1,4 +1,4 @@
-// a function to swicth pages
+// a function to switch pages
 var switch_pages;
 //a function to send a request to a php server file
 var sendRequest;
@@ -11,23 +11,6 @@ var network_switch;
 // A custom toast I made myself prophet just being cool :-*
 var prophet_toast;
 
-var _ticker = 0;
-var network_status = 0;
-
-network_switch = function () {
-    $("#network-switch").click(function () {
-        if (_ticker % 2 == 0) {
-            $(this).addClass("green");
-            network_status = 1;
-            $(".status").text("online");
-        } else {
-            network_status = 0;
-            $(this).removeClass("green");
-            $(".status").text("offline");
-        }
-        _ticker++;
-    });
-}
 
 
 sign_up = function () {
@@ -57,9 +40,8 @@ login = function () {
     $('#login').click(function () {
         $a = $('#login_email').val();
         $b = $('#login_pword').val();
-        prophet_toast(2, "Here");
+        $str = '';
         $obj = sendRequest($str);
-
         if ($obj.result == 1) {} else {}
     });
 }
@@ -69,7 +51,7 @@ login = function () {
 sendRequest = function (dataString) {
     var obj = $.ajax({
         type: "POST",
-        url: "src/classes/auth.php",
+        url: "src/classes/login_class.php",
         //url: "http://cs.ashesi.edu.gh/~csashesi/class2016/prophet-agyeman-prempeh/mobile_web_server/login.php", //for web
         data: dataString,
         async: false,
@@ -105,7 +87,6 @@ prophet_toast = function (type, message) {
 
 // code
 $(function () {
-    network_switch();
     switch_pages();
     sign_up();
     login();
