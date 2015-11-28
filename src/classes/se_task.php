@@ -63,5 +63,31 @@ class se_task extends adb{
                         report='$report', WHERE `task_id`=$task_id";
 			return $this->query($str_query);
 	}
+
+    /**
+    * Function to delete a task from a table
+    *
+    * @param int $task_id The task id of a the value to be edited
+    * @return $this->query($str_query); Returns a query with the values
+    */
+    function delete_task($task_id){
+		$str_query="delete from se_task where task_id=$task_id";
+		return $this->query($str_query);
+	}
+
+    /**
+    * Function to view a task from the database
+    *
+    * @param int $task_id The task id of a the value to be viewed
+    * @return $this->query($str_query); Returns a query with the values
+    */
+    function view_task($task_id){
+        $str_query = "SELECT * FROM `se_task` WHERE taskid=$task_id";;
+        if(!$this->query($str_query)){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
 ?>
