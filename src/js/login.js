@@ -6,8 +6,8 @@ var sendRequest;
 var sign_up;
 // a function that sends an ajax request to log a user in
 var login;
-// A function that toggles between online and offline
-var network_switch;
+// A function to logout
+var logout;
 // A custom toast I made myself prophet just being cool :-*
 var prophet_toast;
 
@@ -42,6 +42,13 @@ login = function () {
         $b = $('#login_pword').val();
         $str = '';
         $obj = sendRequest($str);
+        if ($obj.result == 1) {} else {}
+    });
+}
+
+logout = function () {
+    $('#logout').click(function () {
+        $obj = sendRequest("");
         if ($obj.result == 1) {} else {}
     });
 }

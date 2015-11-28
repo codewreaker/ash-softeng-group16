@@ -111,3 +111,7 @@
 .toast .red{
     background-color: #fc3a3a !important;
 }
+
+.curr_user {
+    color: #fff;
+}
