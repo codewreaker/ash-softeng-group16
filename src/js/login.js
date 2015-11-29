@@ -1,7 +1,7 @@
 // a function to switch pages
 var switch_pages;
 //a function to send a request to a php server file
-var sendRequest;
+var sendLoginRequest;
 // a function that creates a new profile for a user
 var sign_up;
 // a function that sends an ajax request to log a user in
@@ -25,7 +25,7 @@ sign_up = function () {
         $f = $('#signup_role option:selected').val();
         $str = 'opt=1&signup_email=' + $a + '&signup_pword=' + $b + '&signup_fullname=' + $c + '&signup_role=' + $d + '&signup_contact=' + $e + '&is_admin=' + $f;
 
-        $obj = sendRequest($str);
+        $obj = sendLoginRequest($str);
         if ($obj.result == 1) {
             prophet_toast(2, $obj.message);
             setTimeout(function () {
@@ -42,8 +42,8 @@ login = function () {
     $('#login').click(function () {
         $a = $('#login_email').val();
         $b = $('#login_pword').val();
-        $str = 'opt=2&login_email='+$a+'&login_pword='+$b;
-        $obj = sendRequest($str);
+        $str = 'opt=2&login_email=' + $a + '&login_pword=' + $b;
+        $obj = sendLoginRequest($str);
         if ($obj.result == 1) {
             prophet_toast(2, $obj.message);
             setTimeout(function () {
@@ -57,24 +57,25 @@ login = function () {
 
 logout = function () {
     $('#logout_btn').click(function () {
-          alertBars("succesfully logged out");
+        alertBars("succesfully logged out");
         setTimeout(function () {
-                window.location.replace("login.html");
-            }, 3000);
-//        $str = 'opt=3';
-//        $obj = sendRequest($str);
-//        alert($object.result);
-//        if ($obj.result == 1) {
-//            setTimeout(function () {
-//                window.location.replace("login.html");
-//            }, 3000);
-//        } else {}
+            window.location.replace("login.html");
+        }, 2000);
+        //        $str = 'opt=3';
+        //        $obj = sendLoginRequest($str);
+        //        alert($object.result);
+        //        if ($obj.result == 1) {
+        //            alertBars("succesfully logged out");
+        //            setTimeout(function () {
+        //                window.location.replace("login.html");
+        //            }, 3000);
+        //        } else {}
     });
 }
 
 
 //This function will be used to send an Ajax call to a database
-sendRequest = function (dataString) {
+sendLoginRequest = function (dataString) {
     var obj = $.ajax({
         type: "POST",
         url: "src/classes/login_class.php",
@@ -111,10 +112,10 @@ prophet_toast = function (type, message) {
     }
 }
 
-alertBars = function($msg){
-        $(".alert-area").show();
-          $(".alert-area-text").html($msg);
-    }
+alertBars = function ($msg) {
+    $(".alert-area").show();
+    $(".alert-area-text").html($msg);
+}
 
 // code
 $(function () {

@@ -13,24 +13,23 @@ $option = $_REQUEST['opt'];
 
 switch($option){
     case 1:
-        include_once("t_task.php");
-        $obj = new t_task();
-        $task_name = $_POST['tn'];
-        $description = $_POST['desc'];
-        $admin = $_POST['admin'];
-        $personnel=$_POST['tp'];
-        $due_date = $_POST['td'];
-if(!$obj->add_task($task_name,$description,$personnel,$due_date)){
-        echo '{"result":0,"message":"Failed"}';
+        include_once("se_task.php");
+        $obj = new se_task();
+        $task_name = $_REQUEST['task_name'];
+        $task_endtime = $_REQUEST['task_endtime'];
+        $user_id=$_REQUEST['task_setter'];
+        $personnel=$_REQUEST['personnel'];
+if(!$obj->add_task($task_name,$task_endtime,$user_id,$personnel)){
+        echo '{"result":0,"message":"Failed to add task"}';
     }
     else{
-        echo '{"result":1,"message":"Successfully Added Task"}';
+        echo '{"result":1,"message":"Successfully Created Task"}';
 }
         break;
     case 2:
-         include_once("t_task.php");
+         include_once("se_task.php");
          $obj = new t_task();
-         $task_id = $_POST['tid'];
+         $task_id = $_REQUEST['task_id'];
          if(!$obj->delete_task($task_id)){
             echo '{"result":0,"message":"Failed To Delete"}';
             return;
@@ -84,9 +83,9 @@ if(!$obj->add_task($task_name,$description,$personnel,$due_date)){
         $obj = new t_task();
         break;
     case 7:
-        include_once("t_task.php");
-        $obj = new t_task();
-        if(!$obj->get_task()){
+        include_once("se_task.php");
+        $obj = new se_task();
+        if(!$obj->fetch_task()){
             echo '{"result":0,"message":"failed to fetch data"}';
             return;
         }else{

@@ -35,5 +35,7 @@ if($_REQUEST['opt']==1){
     }else{
         echo '{"result":1,"message":"Successfully Logged Out"}';
     }
+}else if($_REQUEST['opt']==4){
+    //logout function happens here
 }
 

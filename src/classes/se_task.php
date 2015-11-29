@@ -25,17 +25,17 @@ class se_task extends adb{
     * @param int $user_id the id of the user being assigned to the task
     * @param int $status the progress of the task
     * @param string $report documentation for completed task
-    * @return $this->query($str_query); Returns a query with the values
+    * @return $this->query($str_query); Returns a response
     */
-	function add_task($task_id, $task_name, $start_time, $end_time, $user_id, $status, $report){
+	function add_task($task_name,$end_time, $user_id,$personnel){
 			$str_query="insert into se_task set
-                        task_id='$task_id'
 						task_name='$task_name',
-						start_time='$start_time',
+						start_time='CURR_DATETIME()',
 						end_time='$end_time',
 						user_id='$user_id',
-                        status='$status',
-                        report='$report'";
+						personnel_id='$personnel',
+                        status='0',
+                        report='No Report Yet'";
 			return $this->query($str_query);
 	}
 
@@ -82,7 +82,22 @@ class se_task extends adb{
     * @return $this->query($str_query); Returns a query with the values
     */
     function view_task($task_id){
-        $str_query = "SELECT * FROM `se_task` WHERE taskid=$task_id";;
+        $str_query = "SELECT * FROM `se_task` WHERE taskid=$task_id";
+        if(!$this->query($str_query)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+     /**
+    * Function to fetch all data from the database
+    *
+    * @param int $task_id The task id of a the value to be viewed
+    * @return $this->query($str_query); Returns a query with the values
+    */
+    function fetch_task(){
+        $str_query = "SELECT * FROM `se_task`";
         if(!$this->query($str_query)){
             return false;
         }else{

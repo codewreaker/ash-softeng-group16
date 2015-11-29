@@ -51,8 +51,10 @@
                 <li>
                     <a href="#">Services</a>
                 </li>
-                <li>
-                    <a href="#" id="logout_btn">Logout</a>
+                <li class="task_statistics">
+                    <span class="fa fa-check-circle-o fa-2x green-text"><p>completed task</p></span>
+                    <span class="fa fa-dot-circle-o fa-2x orange-text"><p>pending tasks</p></span>
+                    <span class="fa fa-circle fa-2x red-text"><p>unattended tasks</p></span>
                 </li>
             </ul>
         </div>
@@ -69,20 +71,48 @@
             </nav>
 
             <div class="container-fluid">
-              <div class="alert-area">
-                  <div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong class="alert-area-text">Warning!</strong>
-</div>
-              </div>
+                <div class="alert-area">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong class="alert-area-text">Warning!</strong>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
+                        <h1>My Task</h1>
+                        <!--
                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <button class="btn btn-default" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Press</button>
                         <div class='toast' id="three">Event Created</div>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+-->
+                        <div class="task-section col-lg-12">
+                            <table border="1px">
+                                <thead>
+                                    <th>status</th>
+                                    <th>Task</th>
+                                    <th>Due Time</th>
+                                    <th>Options</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>completed</td>
+                                        <td>Complete The Task View</td>
+                                        <td>13/11/2015</td>
+                                        <td>edit|delete</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="divider col-lg-12" />
+                        <div class="report-section col-lg-12">
+
+                        </div>
+                        <hr class="divider col-lg-12" />
+                        <div class="addtask-section col-lg-12">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,5 +132,12 @@
     <script src="src/js/login.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 </body>
+s
 
 </html>
+
+
+<!-- List of things to complete
+You were changing the databae and adding one more
+You have added the siolay section in datatbase stype
+You have added the display diplayTable but is not connected -->
