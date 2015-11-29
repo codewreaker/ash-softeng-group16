@@ -85,8 +85,8 @@ class Auth extends adb{
 				//Setup sessions vars
 				session_start();
 				$_SESSION['token'] = $token;
-				$_SESSION['user_id'] = $selection['uid'];
-				$id = $selection['uid'];
+				$_SESSION['user_id'] = $selection['user_id'];
+				$id = $selection['user_id'];
                 
 				//Delete old se_logged_in_member records for user
                 $str = "DELETE FROM se_logged_in_member WHERE id ='$id'";

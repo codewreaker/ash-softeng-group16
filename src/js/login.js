@@ -28,7 +28,7 @@ sign_up = function () {
             prophet_toast(2, $obj.message);
             setTimeout(function () {
                 window.location.replace("main.html");
-            }, 3000);;
+            }, 3000);
         } else {
             prophet_toast(1, $obj.message);
         }
@@ -40,16 +40,30 @@ login = function () {
     $('#login').click(function () {
         $a = $('#login_email').val();
         $b = $('#login_pword').val();
-        $str = '';
+        $str = 'opt=2&login_email='+$a+'&login_pword='+$b;
         $obj = sendRequest($str);
-        if ($obj.result == 1) {} else {}
+        if ($obj.result == 1) {
+            prophet_toast(2, $obj.message);
+            setTimeout(function () {
+                window.location.replace("main.html");
+            }, 3000);
+        } else {
+            prophet_toast(1, $obj.message);
+        }
     });
 }
 
 logout = function () {
-    $('#logout').click(function () {
-        $obj = sendRequest("");
-        if ($obj.result == 1) {} else {}
+    $('#logout_btn').click(function () {
+        $str = 'opt=3';
+        $obj = sendRequest($str);
+        alert($object.result);
+        if ($obj.result == 1) {
+            alert("logged out");
+            setTimeout(function () {
+                window.location.replace("login.html");
+            }, 3000);
+        } else {}
     });
 }
 
@@ -97,5 +111,6 @@ $(function () {
     switch_pages();
     sign_up();
     login();
+    logout();
 
 });

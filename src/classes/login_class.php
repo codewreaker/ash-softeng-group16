@@ -24,7 +24,7 @@ if($_REQUEST['opt']==1){
         echo '{"result":0,"message":"You are not an active user"}';
     }else if($result == 1){
         echo '{"result":0,"message":"Account Has Not Been Verified"}';
-    }else{
+    }else if($result == 0){
         echo '{"result":1,"message":"Succesfully Logged In"}';
     }
      
@@ -36,3 +36,4 @@ if($_REQUEST['opt']==1){
         echo '{"result":1,"message":"Successfully Logged Out"}';
     }
 }
+
