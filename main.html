@@ -67,15 +67,22 @@
                     <li><span><i class="fa fa-circle"></i></span></li>
                 </ul>
             </nav>
-            
+
             <div class="container-fluid">
+              <div class="alert-area">
+                  <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong class="alert-area-text">Warning!</strong>
+</div>
+              </div>
+
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Simple Sidebar</h1>
                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                      <button class="btn btn-default" id="hth">Press</button>
-                      <div class='toast' id="three">Event Created</div>
-                      <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <button class="btn btn-default" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Press</button>
+                        <div class='toast' id="three">Event Created</div>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
                     </div>
                 </div>
             </div>

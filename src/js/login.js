@@ -10,6 +10,8 @@ var login;
 var logout;
 // A custom toast I made myself prophet just being cool :-*
 var prophet_toast;
+// A bar that appears at the top of the main page to display a message
+var alertBars;
 
 
 
@@ -55,15 +57,18 @@ login = function () {
 
 logout = function () {
     $('#logout_btn').click(function () {
-        $str = 'opt=3';
-        $obj = sendRequest($str);
-        alert($object.result);
-        if ($obj.result == 1) {
-            alert("logged out");
-            setTimeout(function () {
+          alertBars("succesfully logged out");
+        setTimeout(function () {
                 window.location.replace("login.html");
             }, 3000);
-        } else {}
+//        $str = 'opt=3';
+//        $obj = sendRequest($str);
+//        alert($object.result);
+//        if ($obj.result == 1) {
+//            setTimeout(function () {
+//                window.location.replace("login.html");
+//            }, 3000);
+//        } else {}
     });
 }
 
@@ -105,6 +110,11 @@ prophet_toast = function (type, message) {
         $('.toast').html(message);
     }
 }
+
+alertBars = function($msg){
+        $(".alert-area").show();
+          $(".alert-area-text").html($msg);
+    }
 
 // code
 $(function () {

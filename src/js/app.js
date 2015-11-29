@@ -1,5 +1,7 @@
     var prophet_toast;
-    var reveal_username;
+    var revealUsername;
+    var enablePopElements;
+    var alertBars;
 
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
@@ -7,19 +9,24 @@
     });
 
     //A function that makes the full username display on hover of the user icon
-    reveal_username = function(){
-         $('.sidebar-brand').on('mouseenter',function(){
-        $("#sidebar-wrapper").addClass("marquee");
-        $(".curr_user").removeClass("wrap-text");
-    });
+    revealUsername = function () {
+        $('.sidebar-brand').on('mouseenter', function () {
+            $("#sidebar-wrapper").addClass("marquee");
+            $(".curr_user").removeClass("wrap-text");
+        });
 
-    $('.sidebar-brand').on('mouseleave',function(){
-        $("#sidebar-wrapper").removeClass("marquee");
-        $(".curr_user").addClass("wrap-text");
-    });
+        $('.sidebar-brand').on('mouseleave', function () {
+            $("#sidebar-wrapper").removeClass("marquee");
+            $(".curr_user").addClass("wrap-text");
+        });
     }
 
-
+    enablePopElements= function () {
+        $(".alert-area").hide();
+        $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#logout_btn').tooltip('show');
+    }
 
     prophet_toast = function (id, type, message) {
         if (type == 1) {
@@ -31,6 +38,12 @@
         }
     }
 
-$(function () {
-    reveal_username();
-});
+    alertBars = function($msg){
+          $(".alert-area").show();
+          $(".alert-area-text").html($msg);
+    }
+
+    $(function () {
+        revealUsername();
+        enablePopElements();
+    });
