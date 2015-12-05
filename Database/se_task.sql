@@ -10,7 +10,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `se_task` (
   `task_id` int(9) NOT NULL,
   `task_name` varchar(338) NOT NULL,
-  `start_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
   `user_id` int(9) NOT NULL,
   `setter_id` int(9) NOT NULL,

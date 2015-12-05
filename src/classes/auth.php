@@ -83,7 +83,6 @@ class Auth extends adb{
 				$token = $this->hashData($token);
 					
 				//Setup sessions vars
-				session_start();
 				$_SESSION['token'] = $token;
 				$_SESSION['user_id'] = $selection['user_id'];
 				$id = $selection['user_id'];

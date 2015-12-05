@@ -78,8 +78,8 @@ logout = function () {
 sendLoginRequest = function (dataString) {
     var obj = $.ajax({
         type: "POST",
-        url: "src/classes/login_class.php",
-        //url: "http://cs.ashesi.edu.gh/~csashesi/class2016/prophet-agyeman-prempeh/mobile_web_server/login.php", //for web
+        //url: "src/classes/login_class.php",
+        url: "http://cs.ashesi.edu.gh/~csashesi/class2016/prophet-agyeman-prempeh/mobile_web_server/login.php", //for web
         data: dataString,
         async: false,
         cache: false
