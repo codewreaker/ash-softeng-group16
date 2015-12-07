@@ -1,20 +1,32 @@
 <html>
 <head>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script src="js/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <link rel='stylesheet' href="res/font-awesome/css/font-awesome.css"/>
 	<style>
 
 
 	</style>
-	<title>Index</title>
+	<title>Task View</title>
 
-<h1 >Task View</h1>
+<header > <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Task View</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav></header>
 
 </head>
 <body >
-
+    
+    </br>
 
 <form action="deletetask.php" method="GET" >
 		<div>Task Id:   <input type="text" size="14" name="ti"></div>
-				 <input type="submit" value="delete">
+    <input type="submit" value="delete" a class="waves-effect waves-light btn"><i class="material-icons left"></i></a>
+				 <!--<input type="submit" value="delete">-->
 
 </form>
 

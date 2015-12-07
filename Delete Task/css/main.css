@@ -1,0 +1,83 @@
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+nav{
+    height: 100px;
+}
+
+#menu{
+    margin-top: 50px;
+}
+
+.loginHeading{
+    font-weight: normal;
+}
+
+.mypass{
+    margin-bottom: 40px;
+}
+
+.login{
+    margin: auto;
+    margin-top: 100px;
+    width: 45%;
+}
+
+.loginbtn{
+    margin-bottom: 30px;
+    width: 76%;
+    font-weight: normal;
+}
+
+.loginfooter{
+    margin-bottom: 60px;
+}
+
+.lowerfooterleft{
+    margin-left: 10px;
+}
+
+.lowerfooterright{
+    margin-right: 10px;
+}
+
+.login_image{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+@media (max-width: 800px) {
+    .login{
+        width: 60%;
+    }
+
+    .lowerfooterleft{
+        margin-left: 10px;
+    }
+
+    .lowerfooterright{
+        margin-right: 10px;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .login{
+        width: 100%;
+    }
+
+    .lowerfooterleft{
+        margin-left: 10px;
+    }
+
+    .lowerfooterright{
+        margin-right: 10px;
+    }
+
+}

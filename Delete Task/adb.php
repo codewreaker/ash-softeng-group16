@@ -1,9 +1,9 @@
 <?php
 define("DB_HOST", 'localhost');
-define("DB_NAME", 'task');
+define("DB_NAME", 'csashesi_makafui-amezah');
 define("DB_PORT", '3306');
-define("DB_USER", "root");
-define("DB_PWORD", "");
+define("DB_USER", "csashesi_mam16");
+define("DB_PWORD", "db!iX6G^70");
 
 define("LOG_LEVEL_SEC", 0);
 define("LOG_LEVEL_DB_FAIL", 0);
@@ -102,6 +102,12 @@ class adb {
 
         return true;
     }
+    
+    //function testFunction(){
+       // $row=$adb->fetch();
+       // $this->asserGreaterThan(0,count($row));
+        
+    //}
 
     /**
      * returns number of rows in current dataset
