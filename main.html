@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="stylesheet" href="src/css/base.css">
     <link rel="stylesheet" href="src/css/custom.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/font-awesome.min.css">
 
     <title>TaskMaster®|v2 </title>
 </head>
@@ -24,12 +24,13 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="#" id="logout_btn">
                         <span class="fa-stack fa-lg fa-3x">
   <i class="fa fa-circle fa-5x fa-stack-2x white1-text"></i>
   <i class="fa fa-user  fa-stack-1x dark-text"></i>
 </span>
                     </a>
+                    <p class="curr_user wrap-text">israel.agyeman.prempeh@gmail.com</p>
                 </li>
                 <div class="splitter"></div>
                 <li>
@@ -50,8 +51,10 @@
                 <li>
                     <a href="#">Services</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
+                <li class="task_statistics">
+                    <span class="fa fa-check-circle-o fa-2x green-text"><p>completed task</p></span>
+                    <span class="fa fa-dot-circle-o fa-2x orange-text"><p>pending tasks</p></span>
+                    <span class="fa fa-circle fa-2x red-text"><p>unattended tasks</p></span>
                 </li>
             </ul>
         </div>
@@ -66,15 +69,50 @@
                     <li><span><i class="fa fa-circle"></i></span></li>
                 </ul>
             </nav>
-            
+
             <div class="container-fluid">
+                <div class="alert-area">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong class="alert-area-text">Warning!</strong>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
+                        <h1>My Task</h1>
+                        <!--
                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                      <button class="btn btn-default" id="hth">Press</button>
-                      <div class='toast' id="three">Event Created</div>
-                      <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <button class="btn btn-default" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Press</button>
+                        <div class='toast' id="three">Event Created</div>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+-->
+                        <div class="task-section col-lg-12">
+                            <table border="1px">
+                                <thead>
+                                    <th>status</th>
+                                    <th>Task</th>
+                                    <th>Due Time</th>
+                                    <th>Options</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>completed</td>
+                                        <td>Complete The Task View</td>
+                                        <td>13/11/2015</td>
+                                        <td>edit|delete</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="divider col-lg-12" />
+                        <div class="report-section col-lg-12">
+
+                        </div>
+                        <hr class="divider col-lg-12" />
+                        <div class="addtask-section col-lg-12">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,11 +120,24 @@
         <!-- /#page-content-wrapper -->
 
     </div>
+    <div class="user-floater">
+        <span></span>
+    </div>
+
+
     <!-- /#wrapper -->
     <!-- SCRIPT FILES -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="src/js/jquery.min.js"></script>
     <script src="src/js/app.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="src/js/login.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
 </body>
+s
 
 </html>
+
+
+<!-- List of things to complete
+You were changing the databae and adding one more
+You have added the siolay section in datatbase stype
+You have added the display diplayTable but is not connected -->

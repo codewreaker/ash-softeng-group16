@@ -1,33 +1,18 @@
-// a function to swicth pages
+// a function to switch pages
 var switch_pages;
 //a function to send a request to a php server file
-var sendRequest;
+var sendLoginRequest;
 // a function that creates a new profile for a user
 var sign_up;
 // a function that sends an ajax request to log a user in
 var login;
-// A function that toggles between online and offline
-var network_switch;
+// A function to logout
+var logout;
 // A custom toast I made myself prophet just being cool :-*
 var prophet_toast;
+// A bar that appears at the top of the main page to display a message
+var alertBars;
 
-var _ticker = 0;
-var network_status = 0;
-
-network_switch = function () {
-    $("#network-switch").click(function () {
-        if (_ticker % 2 == 0) {
-            $(this).addClass("green");
-            network_status = 1;
-            $(".status").text("online");
-        } else {
-            network_status = 0;
-            $(this).removeClass("green");
-            $(".status").text("offline");
-        }
-        _ticker++;
-    });
-}
 
 
 sign_up = function () {
@@ -40,12 +25,12 @@ sign_up = function () {
         $f = $('#signup_role option:selected').val();
         $str = 'opt=1&signup_email=' + $a + '&signup_pword=' + $b + '&signup_fullname=' + $c + '&signup_role=' + $d + '&signup_contact=' + $e + '&is_admin=' + $f;
 
-        $obj = sendRequest($str);
+        $obj = sendLoginRequest($str);
         if ($obj.result == 1) {
             prophet_toast(2, $obj.message);
             setTimeout(function () {
                 window.location.replace("main.html");
-            }, 3000);;
+            }, 3000);
         } else {
             prophet_toast(1, $obj.message);
         }
@@ -57,20 +42,44 @@ login = function () {
     $('#login').click(function () {
         $a = $('#login_email').val();
         $b = $('#login_pword').val();
-        prophet_toast(2, "Here");
-        $obj = sendRequest($str);
+        $str = 'opt=2&login_email=' + $a + '&login_pword=' + $b;
+        $obj = sendLoginRequest($str);
+        if ($obj.result == 1) {
+            prophet_toast(2, $obj.message);
+            setTimeout(function () {
+                window.location.replace("main.html");
+            }, 3000);
+        } else {
+            prophet_toast(1, $obj.message);
+        }
+    });
+}
 
-        if ($obj.result == 1) {} else {}
+logout = function () {
+    $('#logout_btn').click(function () {
+        alertBars("succesfully logged out");
+        setTimeout(function () {
+            window.location.replace("login.html");
+        }, 2000);
+        //        $str = 'opt=3';
+        //        $obj = sendLoginRequest($str);
+        //        alert($object.result);
+        //        if ($obj.result == 1) {
+        //            alertBars("succesfully logged out");
+        //            setTimeout(function () {
+        //                window.location.replace("login.html");
+        //            }, 3000);
+        //        } else {}
     });
 }
 
 
 //This function will be used to send an Ajax call to a database
-sendRequest = function (dataString) {
+sendLoginRequest = function (dataString) {
     var obj = $.ajax({
         type: "POST",
-        url: "src/classes/auth.php",
-        //url: "http://cs.ashesi.edu.gh/~csashesi/class2016/prophet-agyeman-prempeh/mobile_web_server/login.php", //for web
+        //url: "src/classes/login_class.php",
+        url: "http://cs.ashesi.edu.gh/~csashesi/class2016/prophet-agyeman-prempeh/mobile_web_server/login.php", //for web
         data: dataString,
         async: false,
         cache: false
@@ -103,11 +112,16 @@ prophet_toast = function (type, message) {
     }
 }
 
+alertBars = function ($msg) {
+    $(".alert-area").show();
+    $(".alert-area-text").html($msg);
+}
+
 // code
 $(function () {
-    network_switch();
     switch_pages();
     sign_up();
     login();
+    logout();
 
 });
