@@ -24,17 +24,39 @@ class edit_task extends adb{
     
     * @return $this->query($str_query); Returns a query with the values
     */
-	function edit_task($task_id,$task_name,$start_time,$end_time,$user_id,$status,$report){
+	function e_task($task_id,$task_name,$start_time,$end_time,$user_id,$setter_id,$status,$report){
 			$str_query="UPDATE se_task SET
                         task_id='$task_id',
 						task_name='$task_name',
 						start_time='$start_time',
                         end_time='$end_time',
 						user_id='$user_id',
+                        setter_id='$setter_id',
                         status='$status',
-                        report='$report', WHERE `task_id`=$task_id";
+                        report='$report' WHERE `task_id`=$task_id";
 			return $this->query($str_query);
 	}
     }
+
+if(isset($_REQUEST['ti'])){
+	
+	$task_id=$_REQUEST['ti'];
+    $task_name=$_REQUEST['tn'];
+    $start_time=$_REQUEST['st'];
+    $end_time=$_REQUEST['et'];
+    $user_id=$_REQUEST['ui'];
+    $setter_id=$_REQUEST['si'];
+    $status=$_REQUEST['sp'];
+    $report=$_REQUEST['tr'];
+    $obj= new edit_task();
+    
+	if(!$obj->e_task($task_id,$task_name,$start_time,$end_time,$user_id,$setter_id,$status,$report)){
+		echo "Error updating task".mysql_error();
+	}
+	else{
+		echo "Task updated";
+	}
+}
+
     
     ?>

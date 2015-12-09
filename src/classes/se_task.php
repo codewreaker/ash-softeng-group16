@@ -54,7 +54,7 @@ class se_task extends adb{
     */
 	function edit_task($task_id, $task_name, $start_time, $end_time, $user_id, $status, $report){
 			$str_query="UPDATE se_task SET
-                        task_id=$task_id,
+                        task_id='$task_id',
 						task_name='$task_name',
 						start_time='$start_time',
                         end_time='$end_time',

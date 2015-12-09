@@ -26,26 +26,15 @@
         <div>Start Time:   <input type="text" size="14" name="st"></div>
         <div>End Time:   <input type="text" size="14" name="et"></div>
         <div>User Id:   <input type="text" size="14" name="ui"></div>
+        <div>Setter Id:   <input type="text" size="14" name="si"></div>
         <div>Status:   <input type="text" size="14" name="sp"></div>
-        <div>Report: </div>
-		<div>  <textarea name="tr" size="30" ></textarea></div>
+        <div>Report: <input type="text" size="14" name="tr"></div>
     
-				 <input type="submit" value="update">
+    <button id="save" value="save"  type="submit"></button>
 </form>
 
 <?php
-if(isset($_REQUEST['ti'])){
-	include("edit_task.php");
-	$obj= new edit_task();
-	$task_id=$_REQUEST['ti'];
-
-	if(!$obj->edit_task($task_id)){
-		echo "Error updating task".mysql_error();
-	}
-	else{
-		echo "Task updated";
-	}
-}
+    
 ?>
 </table>
 </body>

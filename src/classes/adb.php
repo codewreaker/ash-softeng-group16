@@ -7,7 +7,7 @@
  */
 
 define("DB_HOST", 'localhost');
-define("DB_NAME", 'csashesi_prophet-agyeman-prempeh');
+define("DB_NAME", 'software_engineering');
 define("DB_PORT", 3306);
 define("DB_USER","root");
 define("DB_PWORD","");
