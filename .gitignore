@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-/bower_components/
-=======
 # bower_component and node_modules#
 
 bower_components
@@ -44,4 +41,7 @@ node_modules
 .Trashes
 ehthumbs.db
 Thumbs.db
->>>>>>> master
+
+
+# others #
+*.ai
