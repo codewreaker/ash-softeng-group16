@@ -44,11 +44,10 @@
           
           for ( ; i < obj.task.length; i++ )
                     {
-console.log("here: " + i);
-          panels += "<div class='row'><div class='col s12 m4'><div class='card'><div class='card-content'><p><b>Name: </b>"+obj[i].name+"</p><p><b>Description: </b>"+obj[i].description+"</p></div></div></div></div>";
+          panels += "<div class='row'><div class='col s12 m4'><div class='card'><div class='card-content'><p><b>ID: </b>"+obj.task[i].taskid+"</p><p><b>Name: </b>"+obj.task[i].name+"</p><p><b>Description: </b>"+obj.task[i].description+"</p></div></div></div></div>";
           }
           
-           $ ( ".lists" ).html (panels);
+           $ ( "#lists" ).html (panels);
          }
          else{
           
@@ -59,8 +58,8 @@ console.log("here: " + i);
     </br>
 
 <form action="deletetask.php" method="GET" >
-		<div>Task Id:   <input type="text" size="14" name="ti" id="idfield"></div>
-    <input type="submit" value="delete" a class="waves-effect waves-light btn" onclick="deleteTask()"><i class="material-icons left"></i></a>
+		<div>Task Id:   <input type="text" size="5" name="ti" id="idfield">  </div>
+   <input type="submit" value="delete" a class="waves-effect waves-light btn" onclick="deleteTask()"><i class="material-icons left"></i></a>
 				
 
 </form>
